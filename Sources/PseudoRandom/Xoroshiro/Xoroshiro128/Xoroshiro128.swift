@@ -11,8 +11,7 @@ public enum Xoroshiro128: Equatable {
         (0, 0)
     }
 
-    internal static func isValid(state s: State) -> Bool {
-        let sum = s.0 + s.1
-        return sum > 0
+    internal static func isValid(state: State) -> Bool {
+        state != Self.invalidState
     }
 }

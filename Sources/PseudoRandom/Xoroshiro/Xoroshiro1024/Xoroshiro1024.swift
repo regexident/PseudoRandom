@@ -19,6 +19,6 @@ public enum Xoroshiro1024: Equatable {
     }
 
     internal static func isValid(state: State) -> Bool {
-        state.reduce(0, +) != 0
+        state != Self.invalidState
     }
 }

@@ -15,10 +15,34 @@ public enum Xoshiro512: Equatable {
         )
     }
 
-    internal static func isValid(state s: State) -> Bool {
-        let sum0 = s.0 + s.1 + s.2 + s.3
-        let sum1 = s.4 + s.5 + s.6 + s.7
-        let sum = sum0 + sum1
-        return sum > 0
+    internal static func isValid(state: State) -> Bool {
+        let invalidState = self.invalidState
+
+        guard state.0 == invalidState.0 else {
+            return true
+        }
+        guard state.1 == invalidState.1 else {
+            return true
+        }
+        guard state.2 == invalidState.2 else {
+            return true
+        }
+        guard state.3 == invalidState.3 else {
+            return true
+        }
+        guard state.4 == invalidState.4 else {
+            return true
+        }
+        guard state.5 == invalidState.5 else {
+            return true
+        }
+        guard state.6 == invalidState.6 else {
+            return true
+        }
+        guard state.7 == invalidState.7 else {
+            return true
+        }
+        
+        return false
     }
 }
