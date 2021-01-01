@@ -78,7 +78,7 @@ extension Xoroshiro128StarStar: RandomNumberGenerator {
         self.next { s in
             let s0 = s.0
             var s1 = s.1
-            let result = rotl(s0 * 5, 7) * 9
+            let result = rotl(s0 &* 5, 7) &* 9
 
             s1 ^= s0
             s.0 = rotl(s0, 24) ^ s1 ^ (s1 << 16) // a, b

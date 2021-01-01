@@ -77,7 +77,7 @@ extension Xoshiro256PlusPlus: Stateful {}
 extension Xoshiro256PlusPlus: RandomNumberGenerator {
     public mutating func next() -> UInt64 {
         self.next { s in
-            let result = rotl(s.0 + s.3, 23) + s.0
+            let result = rotl(s.0 &+ s.3, 23) &+ s.0
 
             let t = s.1 << 17
 

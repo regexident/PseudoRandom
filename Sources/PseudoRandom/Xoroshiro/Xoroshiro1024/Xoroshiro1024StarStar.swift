@@ -87,10 +87,10 @@ extension Xoroshiro1024StarStar: RandomNumberGenerator {
     public mutating func next() -> UInt64 {
         self.next { p, s in
             let q = p
-            p = (p + 1) & 15
+            p = (p &+ 1) & 15
             let s0 = s[p]
             var s15 = s[q]
-            let result = rotl(s0 * 5, 7) * 9
+            let result = rotl(s0 &* 5, 7) &* 9
 
             s15 ^= s0
             s[q] = rotl(s0, 25) ^ s15 ^ (s15 << 27)

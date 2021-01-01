@@ -89,7 +89,7 @@ extension Xoroshiro128Plus: RandomNumberGenerator {
             let s0 = s.0
             var s1 = s.1
 
-            let result = s0 + s1
+            let result = s0 &+ s1
 
             s1 ^= s0;
             s.0 = rotl(s0, 24) ^ s1 ^ (s1 << 16) // a, b

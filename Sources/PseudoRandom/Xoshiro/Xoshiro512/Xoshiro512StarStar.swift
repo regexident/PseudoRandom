@@ -81,7 +81,7 @@ extension Xoshiro512StarStar: Stateful {}
 extension Xoshiro512StarStar: RandomNumberGenerator {
     public mutating func next() -> UInt64 {
         self.next { s in
-            let result = rotl(s.1 * 5, 7) * 9
+            let result = rotl(s.1 &* 5, 7) &* 9
 
             let t = s.1 << 11
 
