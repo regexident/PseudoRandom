@@ -18,6 +18,10 @@ public struct SplitMix64 {
 
     public internal(set) var s: State
 
+    public init(seed: UInt64) {
+        self.init(state: seed)
+    }
+
     public init(state: State) {
         self.s = state
     }
